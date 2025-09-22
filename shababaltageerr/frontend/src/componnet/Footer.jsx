@@ -1,7 +1,7 @@
 import style from "../style/Footer.module.css";
 
 export default function Footer(){
-    let whatsapp="https://wa.me/962782584258?text=مرحبا";
+    let whatsapp="https://wa.me/962791084778";
     return(
         <div className={style.footer}>
             <div className={style.footerinformation}>
