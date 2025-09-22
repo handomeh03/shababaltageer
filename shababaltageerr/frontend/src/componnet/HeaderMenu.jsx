@@ -7,6 +7,7 @@ export default function HeaderMenu({flag}){
                     <li>الصفحة الرئيسية</li>
                     <li>التطوعات</li>
                     <li>الهيئة</li>
+                    <li>التواصل</li>
                 </ul>
              </div>
              <div className={style.largeMenu}>

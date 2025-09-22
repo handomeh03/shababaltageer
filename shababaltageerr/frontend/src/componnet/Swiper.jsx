@@ -32,7 +32,7 @@ export default function Swiperr(){
             return(
                    <SwiperSlide>
                         <div className='image-container'>
-                              <img src={e.images}></img>
+                              <img loading='lazy' src={e.images}></img>
 
                               <div className='overlay'></div>
 
