@@ -1,6 +1,7 @@
 
 import './App.css'
 import Authority from './componnet/Authority'
+import Footer from './componnet/Footer'
 import Header from './componnet/Header'
 import Swiperr from './componnet/Swiper'
 
@@ -12,6 +13,7 @@ function App() {
       <Header/>
       <Swiperr/>
       <Authority/>
+      <Footer/>
      
     </div>
   )

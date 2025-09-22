@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&display=swap');
+.footer{
+    box-shadow: 1px 1px 10px #ef6c004f;
+    font-family:"Tajawal";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+.footer .footerinformation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+}
+.footer .footerinformation img{
+    border-radius: 5rem;
+}
+.footer .footerinformation strong{
+    font-size: large;
+}
+.footer .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.footer .icon img{
+      width: 40px;
+      cursor: pointer;
+}
