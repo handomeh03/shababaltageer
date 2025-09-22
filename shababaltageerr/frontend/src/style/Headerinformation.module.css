@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&display=swap');
+.Headerinformation{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;  
+    
+}
+.info{  
+    display: flex;
+    align-items: center;
+    gap: 1rem;   
+}
+.info img{
+    width: 50px;
+    border-radius: 5rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.342);
+}
+.info h2 { 
+  font-family: 'Tajawal', sans-serif;
+  opacity: 0;              
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (min-width:500px){
+   .Headerinformation{
+    width: 50%;
+    justify-content: space-between;
+   }
+   .headerBtn{
+    display: none;
+   }
+  }
+  @media (min-width:800px){
+    .info{
+      margin-right: 1rem;
+    
+    }
+    .info img{
+      width: 70px;
+    }
+    .info h2{
+      font-size: xx-large;
+    }
+  }

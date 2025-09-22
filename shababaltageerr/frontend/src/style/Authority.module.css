@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&display=swap');
+.containerAuthority{
+    margin-top: 1rem;
+}
+.containerAuthority h1{
+    text-align: center;
+    font-family: "Tajawal";
+}
+.Authority{
+    /* background-color: red; */
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 1rem;
+
+}
+@media (min-width:550px){
+    .Authority{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (min-width:900px){
+    .Authority{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+

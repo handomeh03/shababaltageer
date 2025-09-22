@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Jersey+10+Charted&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    direction: rtl;
+    
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important; 
+}
+
+.swiper {
+  width: 100%;
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+  height: 82vh;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.swiper-slide .image-container{
+    position: relative;
+      width: 100%;
+       height: 100%;
+      overflow: hidden;
+}
+.swiper-slide .image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper-slide .image-container .overlay{
+   position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.46); 
+      z-index: 1;
+}
+ .swiper-slide .image-container .text-context {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      font-family: 'Tajawal', sans-serif;
+    
+    }
+
+  .swiper-slide .image-container  .text-context h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    .swiper-slide .image-container  .text-context h3{
+      font-size: 15px;
+      
+    }
+    
+   .swiper-slide .image-container  button{
+    padding: 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    color: white;
+    background-color:black;
+
+ }
+

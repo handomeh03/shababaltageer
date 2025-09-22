@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&display=swap');
+.largeMenu{
+    display: none;
+    font-family: "Tajawal";
+
+}
+.smallMenu{
+    font-family: "Tajawal";
+}
+.smallMenu ul{  
+    background-color: white;
+    list-style: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    position: absolute;
+    left: 0.5rem;
+    top: 5rem;
+    z-index: 100000;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.429);
+    width: 140px;
+}
+.smallMenu ul li{
+    padding: 5px;
+
+}
+@media (min-width:500px){
+    .smallMenu ul{
+        display: none;
+    }
+    .largeMenu{
+        display: block;
+        
+
+    }
+    .largeMenu ul{
+        list-style: none;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       gap: 1rem;
+       margin-left: 0.5rem;
+    }
+    .largeMenu ul li{
+         padding: 5px;
+         font-size: 15px;
+    }
+    .largeMenu ul li:hover{
+             background-color: #ef6c00;
+             cursor: pointer;
+             border-radius: 1rem;
+             color: white;
+            
+    }
+  
+}
+@media (min-width:800px){
+  .largeMenu ul li{
+    font-size: 20px;
+
+  }
+}
+
