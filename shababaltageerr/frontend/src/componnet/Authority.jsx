@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "../style/Authority.module.css";
-import SingleAuth from "./singleAuth";
+import SingleAuth from "./SingleAuth";
 
 export default function Authority(){
     let [author]=useState([
