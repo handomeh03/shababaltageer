@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&display=swap');
 .footer{
-    box-shadow: 1px 1px 10px #ef6c004f;
+   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.237);
     font-family:"Tajawal";
     display: flex;
     flex-direction: column;
