@@ -1,11 +1,15 @@
 .Header{
-    /* background-color: red; */
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 1rem;
     padding: 0.5rem;
-    box-shadow: 1px 1px 10px #ef6c005c;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.237);
+    position: sticky;
+    top: 0px;
+    z-index: 10000000;
+    background-color: white;
     
      
 }

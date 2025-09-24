@@ -2,7 +2,7 @@
 .Headerinformation{
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;  
     
@@ -32,7 +32,7 @@
 @media (min-width:500px){
    .Headerinformation{
     width: 50%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
    }
    .headerBtn{
     display: none;
