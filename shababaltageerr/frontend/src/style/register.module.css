@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&display=swap');
+
+.Register {
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  text-align: center;
+  font-family: "Tajawal";
+
+  /* وسط الشاشة */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Register h2 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.frominformation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.frominformation h3 {
+  font-size: 0.9rem;
+}
+
+.frominformation img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.registerform {
+  display: grid;
+  grid-template-columns: 1fr; /* موبايل: عمود واحد */
+  gap: 10px;
+}
+
+.registerform input,
+.registerform textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  transition: border 0.3s ease;
+}
+
+.registerform input:focus,
+.registerform textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.registerform textarea {
+  resize: none;
+  height: 90px;
+}
+
+.registerform button {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.registerform button:hover {
+  background: #45a049;
+}
+
+.registerform p {
+  margin-top: 8px;
+  font-size: 0.8rem;
+}
+
+.registerform span {
+  cursor: pointer;
+  font-weight: bold;
+  color: green;
+}
+
+/* للشاشات أكبر من 480px */
+@media (min-width: 480px) {
+  .Register {
+    max-width: 400px;
+    padding: 20px;
+  }
+
+  .Register h2 {
+    font-size: 1.2rem;
+  }
+
+  .registerform input,
+  .registerform textarea,
+  .registerform button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* للشاشات أكبر من 768px */
+@media (min-width: 768px) {
+  .Register {
+    max-width: 500px;
+    padding: 25px;
+  }
+
+  .Register h2 {
+    font-size: 1.5rem;
+  }
+
+  .frominformation {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .frominformation h3 {
+    font-size: 1.2rem;
+  }
+
+  .frominformation img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* العمر + العنوان جنب بعض */
+  .registerform {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* الحقول اللي لازم تاخد العرض كامل */
+  .registerform input:nth-child(1), /* الاسم */
+  .registerform input:nth-child(2), /* الرقم الوطني */
+  .registerform textarea,
+  .registerform input[type="password"],
+  .registerform button,
+  .registerform p {
+    grid-column: span 2;
+  }
+}

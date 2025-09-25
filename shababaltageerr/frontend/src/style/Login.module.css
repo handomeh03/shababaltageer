@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&display=swap');
+
+.Login {
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  text-align: center;
+  font-family: "Tajawal";
+
+  /* وسط الشاشة */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Login h2 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.frominformation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.frominformation h3 {
+  font-size: 0.9rem;
+}
+
+.frominformation img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  transition: border 0.3s ease;
+}
+
+.register input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.register button {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register button:hover {
+  background: #45a049;
+}
+
+.register p {
+  margin-top: 8px;
+  font-size: 0.8rem;
+}
+
+.register span {
+  cursor: pointer;
+  font-weight: bold;
+  color: green;
+}
+
+/* للأجهزة الأكبر */
+@media (min-width: 480px) {
+  .Login {
+    max-width: 400px;
+    padding: 20px;
+  }
+
+  .Login h2 {
+    font-size: 1.2rem;
+  }
+
+  .register input,
+  .register button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .Login {
+    max-width: 450px;
+    padding: 25px;
+  }
+
+  .Login h2 {
+    font-size: 1.5rem;
+  }
+
+  .frominformation {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .frominformation h3 {
+    font-size: 1.2rem;
+  }
+
+  .frominformation img {
+    width: 80px;
+    height: 80px;
+  }
+}
