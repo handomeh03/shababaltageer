@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { UseGoes } from "../context/Gocontext";
 import style from "../style/HeaderMenu.module.css"
 export default function HeaderMenu({flag}){
@@ -13,7 +14,7 @@ export default function HeaderMenu({flag}){
                     <li>التطوعات</li>
                     <li onClick={GoAuthority}>الهيئة</li>
                     <li>التواصل</li>
-                    <li>تسجيل الدخول</li>
+                    <Link to={"/registergi"}>تسجيل الدخول</Link>
                     <li>تسجيل الخروج</li>
                 </ul>
              </div>
@@ -23,7 +24,7 @@ export default function HeaderMenu({flag}){
                     <li>التطوعات</li>
                     <li onClick={GoAuthority}>الهيئة</li>
                     <li>التواصل</li>
-                    <li>تسجيل الدخول</li>
+                   <Link to={"/register"}>تسجيل الدخول</Link>
                     <li>تسجيل الخروج</li>
                    
                 </ul>
