@@ -5,9 +5,9 @@ export default function Register() {
   return (
     <div className={style.Register}>
       <h2>
-        <WavingHandIcon style={{ color: "orange" }} />
+        <WavingHandIcon style={{ color: "#ef6c00" }} />
         اهلا بك في فريق شباب التغيير
-        <WavingHandIcon style={{ color: "orange" }} />
+        <WavingHandIcon style={{ color: "#ef6c00" }} />
       </h2>
       <form>
         <div className={style.frominformation}>

@@ -3,7 +3,7 @@ import WavingHandIcon from '@mui/icons-material/WavingHand';
 export default function Login() {
   return (
     <div className={style.Login}>
-      <h2>  <WavingHandIcon style={{color:"orange"}}/>اهلا بك مرة اخرى  <WavingHandIcon style={{color:"orange"}}/></h2>
+      <h2>  <WavingHandIcon style={{color:"#ef6c00"}}/>اهلا بك مرة اخرى  <WavingHandIcon style={{color:"#ef6c00"}}/></h2>
       <form>
         <div className={style.frominformation}>
           <h3>تسجيل دخول</h3>

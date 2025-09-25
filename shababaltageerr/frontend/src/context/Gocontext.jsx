@@ -2,8 +2,9 @@ import { createContext, useContext, useRef } from "react";
 export  const Cont=createContext();
 export default function Go({children}){
     let Authority=useRef(); 
+    let Contact=useRef();
     return (
-        <Cont.Provider value={{Authority}}>
+        <Cont.Provider value={{Authority,Contact}}>
             {children}
         </Cont.Provider>
     );
