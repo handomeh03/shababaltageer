@@ -1,19 +1,24 @@
 
 import './App.css'
-import Authority from './componnet/Authority'
-import Footer from './componnet/Footer'
-import Header from './componnet/Header'
-import Swiperr from './componnet/Swiper'
+import {  Routes, Route } from "react-router-dom";
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register';
+
+
 
 function App() {
   
 
   return (
     <div className='App'>
-      <Header/>
-      <Swiperr/>
-      <Authority/>
-      <Footer/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+      </Routes>
+      
+  
      
     </div>
   )
