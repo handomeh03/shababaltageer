@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UseGoes } from "../context/Gocontext";
 import style from "../style/HeaderMenu.module.css"
+import { UseUser } from "../context/UserContext";
 export default function HeaderMenu({flag}){
     let {Authority,Contact}=UseGoes();
+    let {userDispatch,token}=UseUser();
+    let navigate=useNavigate();
+
     function GoAuthority(){
         Authority.current.scrollIntoView({behavior:"smooth"});
     }
@@ -17,8 +21,12 @@ export default function HeaderMenu({flag}){
                     <li className={style.link}>التطوعات</li>
                     <li className={style.link} onClick={GoAuthority}>الهيئة</li>
                     <li className={style.link}  onClick={GoContact}>التواصل</li>
-                    <Link className={style.link} to={"/login"}>تسجيل الدخول</Link>
-                    {/* <li className={style.link}>تسجيل الخروج</li> */}
+                    {token? "": <Link className={style.link} to={"/login"}>تسجيل الدخول</Link>}
+                     {token?<li  onClick={()=>{
+                           navigate("/login");
+                           userDispatch({type:"logout"})
+                           localStorage.removeItem("token");
+                    }} className={style.link}>تسجيل الخروج</li>:""}
                 </ul>
              </div>
              <div className={style.largeMenu}>
@@ -27,8 +35,12 @@ export default function HeaderMenu({flag}){
                     <li className={style.link}>التطوعات</li>
                     <li className={style.link} onClick={GoAuthority}>الهيئة</li>
                     <li className={style.link} onClick={GoContact}>التواصل</li>
-                   <Link className={style.link} to={"/login"}>تسجيل الدخول</Link>
-                    {/* <li className={style.link}>تسجيل الخروج</li> */}
+                   {token? "": <Link className={style.link} to={"/login"}>تسجيل الدخول</Link>}
+                     {token?<li  onClick={()=>{
+                           navigate("/login");
+                           userDispatch({type:"token"})
+                           localStorage.removeItem("token");
+                    }} className={style.link}>تسجيل الخروج</li>:""}
                    
                 </ul>
              </div>

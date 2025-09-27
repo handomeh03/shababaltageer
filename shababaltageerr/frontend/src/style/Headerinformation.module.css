@@ -17,8 +17,8 @@
     border-radius: 5rem;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.342);
 }
-.info h2 { 
-  font-family: 'Tajawal', sans-serif;
+.info h3 { 
+  font-family: 'Tajawal', 'Poppins';
   opacity: 0;              
   animation: fadeIn 1.5s ease-in forwards;
 }
@@ -46,7 +46,7 @@
     .info img{
       width: 70px;
     }
-    .info h2{
+    .info h3{
       font-size: xx-large;
     }
   }
