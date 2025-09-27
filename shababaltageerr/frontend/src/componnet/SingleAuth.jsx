@@ -4,7 +4,7 @@ import style from "../style/singleAuth.module.css";
 import { useEffect } from "react";
 export default function SingleAuth({ author }) {
   useEffect(() => {
-    AOS.init({ duration: 550, once: true });
+    AOS.init({ duration: 600, once: true });
   }, []);
 
   return (

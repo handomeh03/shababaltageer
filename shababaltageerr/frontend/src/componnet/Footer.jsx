@@ -13,11 +13,11 @@ export default function Footer(){
             <img width={50} src="./380734428_324908939935661_8355368135205759861_n.jpg"></img>
             </div>
             <div className={style.icon}>
-                <a href={inastagram}><img   src="./Instagram-Logo.png"></img></a>
+                <a  href={inastagram}><img   src="./Instagram-Logo.png"></img></a>
                  <a href={whatsapp}><img src="./whatsapp-logo-icon-isolated-on-transparent-background-free-png.webp"></img></a>
                  <a href={telegram}><img   src="./telegram_PNG12.png"></img></a>
             </div>
-          {/* <p>جميع الحقوق محفوظة <CopyrightIcon/></p> */}
+          <p>جميع الحقوق محفوظة <CopyrightIcon/></p>
         </div>
     );
 }

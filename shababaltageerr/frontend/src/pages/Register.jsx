@@ -1,7 +1,23 @@
+import { Link } from "react-router-dom";
 import style from "../style/register.module.css";
 import WavingHandIcon from '@mui/icons-material/WavingHand';
+import { useState } from "react";
+import { UseRegister } from "../hooks/UseRegister";
 
 export default function Register() {
+  let [fullName,setFullname]=useState("");
+  let[nationalNumber,setNationalNumber]=useState("");
+  let[location,setLocation]=useState("");
+  let [age,setAge]=useState("");
+  let [description,setDescription]=useState("");
+  let [password,setPassword]=useState("");
+
+  let {Register}=UseRegister();
+
+  function handleRegister(e){
+    e.preventDefault(); 
+    Register(fullName,nationalNumber,location,Number(age),description,password);
+  }
   return (
     <div className={style.Register}>
       <h2>
@@ -20,15 +36,15 @@ export default function Register() {
         </div>
 
         <div className={style.registerform}>
-          <input type="text" placeholder="الاسم كامل" required />
-          <input type="text" placeholder="الرقم الوطني" required />
-          <input type="text" placeholder=" العنوان" required />
-          <input type="text" placeholder=" العمر" required />
-          <textarea placeholder="اكتب ملخص مشاركاتك التطوعية"></textarea>
-          <input type="password" placeholder="كلمة المرور" required />
-          <button>انشاء حساب</button>
+          <input value={fullName} onChange={(e)=>{setFullname(e.target.value)}} type="text" placeholder="الاسم كامل" required />
+          <input value={nationalNumber} onChange={(e)=>{setNationalNumber(e.target.value)}} type="text" placeholder="الرقم الوطني" required />
+          <input value={location} onChange={(e)=>{setLocation(e.target.value)}} type="text" placeholder=" العنوان" required />
+          <input value={age} onChange={(e)=>{setAge(e.target.value)}} type="text" placeholder=" العمر" required />
+          <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} placeholder="اكتب ملخص مشاركاتك التطوعية"></textarea>
+          <input value={password} onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder="كلمة المرور" required />
+          <button onClick={handleRegister}>انشاء حساب</button>
           <p>
-            هل تمتلك حساب؟<span style={{ color: "green" }}> تسجيل دخول</span>
+            هل تمتلك حساب؟<Link to={"/login"} style={{ color: "green" }}> تسجيل دخول</Link>
           </p>
         </div>
       </form>
