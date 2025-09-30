@@ -6,7 +6,7 @@ import Swiperr from "../componnet/Swiper";
 export default function Home(){
     return(
         <div className="Home">
-              <Header/>
+                   <Header/>
                     <Swiperr/>
                     <Authority/>
                     <Footer/>

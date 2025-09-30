@@ -11,7 +11,7 @@ export default function Headerinformation({handleChangeflag,flag}) {
       <div className={style.info}>
         <img
         width={100}
-        src="./380734428_324908939935661_8355368135205759861_n.jpg"
+        src="/380734428_324908939935661_8355368135205759861_n.jpg"
       ></img>
       <h3>{user?.full_name || "شباب التغيير"}</h3>
       </div>

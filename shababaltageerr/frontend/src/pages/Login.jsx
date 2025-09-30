@@ -8,13 +8,14 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
+import ErrorAlert from "../componnet/Alert";
 export default function Login() {
 
   let[nationalNumber,setNationalNumber]=useState("");
   let[password,setPassword]=useState("");
 
   //login hook
-  let {login}=UseLogin();
+  let {login,errorLogin}=UseLogin();
 
   // call function that fetch data from hook
   function handleLogin(e){
@@ -45,6 +46,8 @@ export default function Login() {
           <p>لا تمتلك حساب؟ <Link to={"/register"} style={{color:"green"}}>انشاء حساب</Link></p>
         </div>
       </form>
+      {errorLogin && <ErrorAlert error={errorLogin}/>}
+      
     </div>
   );
 }

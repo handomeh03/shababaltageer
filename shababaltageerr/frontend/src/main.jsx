@@ -6,10 +6,15 @@ import Go from "./context/Gocontext.jsx";
 import AuthorProvider from "./context/AuthorContext.jsx";
 import { BrowserRouter } from "react-router-dom";
 import UserProvider from "./context/UserContext.jsx";
+import EventProvider from "./context/EventContext.jsx";
+import VolunterProvider from "./context/Volunter.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <UserProvider>
+    <VolunterProvider>
+            <EventProvider>
+
+      <UserProvider>
       <BrowserRouter>
     <AuthorProvider>
       <Go>
@@ -19,6 +24,11 @@ createRoot(document.getElementById("root")).render(
     </BrowserRouter>
 
     </UserProvider>
+
+    </EventProvider>
+    </VolunterProvider>
+   
+    
     
   </StrictMode>
 );

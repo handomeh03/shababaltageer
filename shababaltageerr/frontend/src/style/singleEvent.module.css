@@ -1,0 +1,85 @@
+.singleEvent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-family: "Tajawal", sans-serif;
+}
+.eventInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.eventInfo img {
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+.eventInfo h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.eventInfo p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.singleeventFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #444;
+  margin-top: 10px;
+}
+
+.singleeventFooter span {
+  background: #f9f9f9;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+
+.eventInfo button {
+  margin-top: 12px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  background: #ef6c00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.eventInfo button:hover {
+  background: #ef6c00c7;
+}
+
+.eventBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.closed{
+    background-color: red;
+    color: white;
+}
