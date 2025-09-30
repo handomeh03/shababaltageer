@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { UseUser } from "../context/UserContext";
+import { useState } from "react";
 export function UseLogin() {
     let navigate=useNavigate();
     let {userDispatch}=UseUser();
+    let [errorLogin,setError]=useState("");
 
   async function login(national_number,password) {
     try {
@@ -23,8 +25,9 @@ export function UseLogin() {
         throw new Error(data.error)
       }
     } catch (error) {
-      console.log(error);
+       setError(error.message);
+    
     }
   }
-  return{login};
+  return{login,errorLogin};
 }

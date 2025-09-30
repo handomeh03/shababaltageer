@@ -17,10 +17,12 @@ export default function HeaderMenu({flag}){
         <div className={style.HeaderMenu}>
              <div style={{display:flag?"block":"none"}} className={style.smallMenu}>
                 <ul>
-                    <li className={style.link}>الصفحة الرئيسية</li>
-                    <li className={style.link}>التطوعات</li>
-                    <li className={style.link} onClick={GoAuthority}>الهيئة</li>
-                    <li className={style.link}  onClick={GoContact}>التواصل</li>
+                    <Link to={"/"} className={style.link}>الصفحة الرئيسية</Link>
+                    <Link to={"/events"} className={style.link}>التطوعات</Link>
+                    <Link to={"/myEvent"} className={style.link}>مشاركاتي</Link>
+                    {/* <Link to={"/"} className={style.link} onClick={GoAuthority}>الهيئة</Link> */}
+                    <Link to={"/"} className={style.link}  onClick={GoContact}>التواصل</Link>
+
                     {token? "": <Link className={style.link} to={"/login"}>تسجيل الدخول</Link>}
                      {token?<li  onClick={()=>{
                            navigate("/login");
@@ -31,10 +33,11 @@ export default function HeaderMenu({flag}){
              </div>
              <div className={style.largeMenu}>
                  <ul>
-                    <li className={style.link}>الصفحة الرئيسية</li>
-                    <li className={style.link}>التطوعات</li>
-                    <li className={style.link} onClick={GoAuthority}>الهيئة</li>
-                    <li className={style.link} onClick={GoContact}>التواصل</li>
+                    <Link to={"/"} className={style.link}>الصفحة الرئيسية</Link>
+                    <Link to={"/events"} className={style.link}>التطوعات</Link>
+                    <Link to={"/myEvent"} className={style.link}>مشاركاتي</Link>
+                    {/* <Link to={"/"} className={style.link} onClick={GoAuthority}>الهيئة</Link> */}
+                    <Link to={"/"} className={style.link} onClick={GoContact}>التواصل</Link>
                    {token? "": <Link className={style.link} to={"/login"}>تسجيل الدخول</Link>}
                      {token?<li  onClick={()=>{
                            navigate("/login");

@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { UseUser } from "../context/UserContext";
+import { useState } from "react";
 
 export function UseRegister() {
  let navigate=useNavigate();
   let { userDispatch } = UseUser();
-  async function Register(  full_name,national_number,location,age,description,password) {
+  let [registerError,setError]=useState("");
+  async function Register(  full_name,national_number,location,age,description,password,phoneNumber) {
     try {
       const res = await fetch("http://localhost:8080/api/user/register", {
         method: "POST",
@@ -15,6 +17,7 @@ export function UseRegister() {
           age,
           description,
           password,
+          phoneNumber
         }),
         headers: {
           "Content-Type": "application/json",
@@ -23,14 +26,14 @@ export function UseRegister() {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem("token", JSON.stringify(data.token));
-        userDispatch({ type: "register", payload:data.token });
+        userDispatch({ type: "token", payload:data.token });
         navigate("/");
       } else {
         throw new Error(data.error);
       }
     } catch (error) {
-      console.log(error);
+      setError(error.message)
     }
   }
-  return {Register};
+  return {Register,registerError};
 }

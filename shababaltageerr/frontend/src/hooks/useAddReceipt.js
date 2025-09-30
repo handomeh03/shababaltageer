@@ -1,0 +1,35 @@
+import { UseUser } from "../context/UserContext";
+
+export function useAddReceipt() {
+
+    let{token}=UseUser();
+  async function addReceipt(event_id, amount, rec_image,handlechangeflag2) {
+    const formData = new FormData();
+    formData.append("amount", amount);
+    formData.append("receipt", rec_image);
+     try {
+
+        const res = await fetch(`http://localhost:8080/api/receipt/addreceipt/${event_id}`, {
+      method: "POST",
+      body: formData,
+      headers: {
+         "Authorization": `Bearer ${token}`
+         }
+    });
+
+    const data = await res.json();
+    if(res.ok){
+        console.log(data.message);
+        handlechangeflag2();
+    }
+    else{
+        throw new Error(data.error);
+    }
+        
+     } catch (error) {
+        console.log(error.message);
+     }
+    
+  }
+  return { addReceipt };
+}
