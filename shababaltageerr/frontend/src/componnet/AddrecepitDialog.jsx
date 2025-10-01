@@ -7,7 +7,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
 import { useAddReceipt } from "../hooks/useAddReceipt";
 
-export default function AddrecepitDialog({flag2,handlechangeflag2,event_id}) {
+export default function AddrecepitDialog({handlechangeErrorReceipt,handlechangeAlreadyinFlag,handlechangeAlertFlag,flag2,handlechangeflag2,event_id}) {
   const textFieldStyle = {
     "& label.Mui-focused": { color: "#ef6c00" },
     "& .MuiOutlinedInput-root": {
@@ -38,7 +38,7 @@ export default function AddrecepitDialog({flag2,handlechangeflag2,event_id}) {
   }
 function handleaddreceipt(e){
    e.preventDefault();
-  addReceipt(event_id,amount,rec_image,handlechangeflag2);
+  addReceipt(event_id,amount,rec_image,handlechangeflag2,handlechangeAlertFlag,handlechangeAlreadyinFlag,handlechangeErrorReceipt);
 }
   return (
     <Dialog style={{ zIndex: "12345675" }} open={flag2}>

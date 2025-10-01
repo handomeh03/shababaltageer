@@ -6,6 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import MenuItem from "@mui/material/MenuItem";
 import { useAddEvent } from "../hooks/useAddEvent";
+import ErrorAlert from "./Alert";
 
 export default function AddEventDilaog({flag, image, name, description, location, numberOfMember, price,status, handlechangeFlag,handleChangename, handlechangedescription ,handlechangeLocation, handlechangeNumberOfmember ,handleChangePrice,handlechangestatus}) {
   const textFieldStyle = {
@@ -23,11 +24,11 @@ export default function AddEventDilaog({flag, image, name, description, location
       backgroundColor: "#ef6c00",
     },
   };
- let {addEvent}=useAddEvent();
+ let {addEvent,error}=useAddEvent();
   function handleAddevent(e){
     e.preventDefault(); 
-    addEvent(name, description,location, numberOfMember,price,status,image);
-    handlechangeFlag();
+    addEvent(name, description,location, numberOfMember,price,status,image,handlechangeFlag);
+    
   }
 
   return (
@@ -145,6 +146,7 @@ export default function AddEventDilaog({flag, image, name, description, location
           اضافة
         </Button>
       </DialogActions>
+       {error && <ErrorAlert error={error}/>}
     </Dialog>
   );
 }

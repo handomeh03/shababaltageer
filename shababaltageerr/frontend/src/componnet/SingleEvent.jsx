@@ -11,7 +11,8 @@ import { useDeleteEvent } from "../hooks/useDeleteEvent";
 import EditEventDialog from "./EditEventDialog";
 import { useNavigate } from "react-router-dom";
 import AddrecepitDialog from "./AddrecepitDialog";
-export default function SingleEvent({event}) {
+
+export default function SingleEvent({handlechangeErrorReceipt,handlechangeAlreadyinFlag,handlechangeAlertFlag,event}) {
     let[flag,setflag]=useState(false);
     let[flag2,setflag2]=useState(false);
     let[image]=useState("./group.jpg");
@@ -102,7 +103,8 @@ export default function SingleEvent({event}) {
        </div>
       </div>
       <EditEventDialog flag={flag} image={image} name={name} description={description} location={location} numberOfMember={numberOfMember} price={price} status={status} event_id={event.event_id} handlechangeFlag={handlechangeFlag} handleChangename={handleChangename} handlechangedescription={handlechangedescription} handlechangeLocation={handlechangeLocation} handlechangeNumberOfmember={handlechangeNumberOfmember} handleChangePrice={handleChangePrice} handlechangestatus={handlechangestatus}/>
-      <AddrecepitDialog flag2={flag2} handlechangeflag2={handlechangeflag2} event_id={event.event_id} />
+      <AddrecepitDialog handlechangeErrorReceipt={handlechangeErrorReceipt} handlechangeAlreadyinFlag={handlechangeAlreadyinFlag} handlechangeAlertFlag={handlechangeAlertFlag} flag2={flag2} handlechangeflag2={handlechangeflag2} event_id={event.event_id} />
+      
     </div>
   );
 }
