@@ -50,7 +50,7 @@ export async function addEvent(req, res) {
       "INSERT INTO events  (name, location, description, image, status, number_of_members, price) VALUES (?, ?, ?, ?, ?, ?, ?)",
       [name, location, description, image, status, number_of_members, price]
     );
-    console.log(result.insertId);
+  
 
     let [row] = await db.execute("select * from events where event_id = ? ", [
       result.insertId,
@@ -76,7 +76,7 @@ export async function editEvent(req, res) {
       event_id,
     ]);
     if (row.length == 0) {
-      return res.status(400).send({ error: "event not found" });
+      return res.status(404).send({ error: "event not found" });
     }
     let [result] = await db.execute(
       "UPDATE events SET name = ?, location = ?, description = ?, image = ?, status = ?, number_of_members = ?, price = ? WHERE event_id = ?",
