@@ -18,6 +18,24 @@
   transition: 0.3s ease;
   font-family: "Tajawal";
 }
+.Alert{
+    position: fixed;
+    top: 4rem;
+    z-index: 123456745678654321;
+    left: 45%;
+    background-color: green !important;
+    color: white !important;
+    
+}
+.Alertalreadyin{
+     position: fixed;
+    top: 4rem;
+    z-index: 123456745678654321;
+    left: 45%;
+    background-color: rgba(255, 0, 0, 0.689) !important;
+    color: white !important;
+   
+}
 @media (min-width:550px){
     .listOfEvent{
         grid-template-columns: repeat(2,1fr);

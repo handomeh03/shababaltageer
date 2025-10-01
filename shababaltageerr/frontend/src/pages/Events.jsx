@@ -7,6 +7,7 @@ import { UseEvent } from "../context/EventContext";
 import { UseUser } from "../context/UserContext";
 import { useFetchEvent } from "../hooks/useFetchEvent";
 import style from "../style/Events.module.css"
+import Alert from '@mui/material/Alert';
 
 export default function Events(){
     let[flag,setflag]=useState(false);
@@ -17,7 +18,9 @@ export default function Events(){
      let[numberOfMember,setNumberOfMember]=useState("");
      let[price,setPrice]=useState("");
      let[status,setStatus]=useState("");
-
+     let[alertflag,setalertFlag]=useState(false);
+     let[alreadyinFlag,setalreadyinFlag]=useState(false);
+     let [errorRecipt,setErrorReceipt]=useState("");
      function handlechangeFlag(){
         setflag((old)=>!old);
      }
@@ -40,8 +43,24 @@ export default function Events(){
      function handlechangestatus(status){
         setStatus(status);
      }
-
-
+  
+     function handlechangeAlertFlag(){
+      setalertFlag((old)=>!old)
+       setTimeout(() => {
+       setalertFlag(false);
+       }, 3000); 
+     }
+     
+     function handlechangeAlreadyinFlag(){
+      setalreadyinFlag((old)=>!old);
+        setTimeout(() => {
+       setalreadyinFlag(false);
+       }, 3000); 
+     }
+  
+     function handlechangeErrorReceipt(e){
+      setErrorReceipt(e);
+     }
     let{lodaer}= useFetchEvent();
     let {event}=UseEvent();
     let {user}=UseUser();
@@ -49,6 +68,9 @@ export default function Events(){
     if(lodaer){
         return (<Loader/>);
     } 
+
+
+  
     return(
         <div className={style.Eventscontainter}>
             
@@ -60,7 +82,7 @@ export default function Events(){
 
                      {event.length>0?event.map((e)=>{
                         return(
-                            <SingleEvent key={e.event_id} event={e}/>
+                            <SingleEvent handlechangeErrorReceipt={handlechangeErrorReceipt} handlechangeAlreadyinFlag={handlechangeAlreadyinFlag} handlechangeAlertFlag={handlechangeAlertFlag} key={e.event_id} event={e}/>
                         );
                      }):<p style={{textAlign:"center",fontFamily:"Tajawal",marginTop:" 3rem",background:"#ef6c00",color:"white",borderRadius:"1rem",padding:"2rem" }}>لا يوجد تطوعات</p>}
 
@@ -69,6 +91,11 @@ export default function Events(){
              </div>
 
              <AddEventDilaog flag={flag} image={image} name={name} description={description} location={location} numberOfMember={numberOfMember} price={price} status={status} handlechangeFlag={handlechangeFlag} handleChangename={handleChangename} handlechangedescription={handlechangedescription} handlechangeLocation={handlechangeLocation} handlechangeNumberOfmember={handlechangeNumberOfmember} handleChangePrice={handleChangePrice} handlechangestatus={handlechangestatus}/>
+             {/*for succes rigister in event*/}
+            {alertflag &&  <Alert className={style.Alert} severity="success">تم التسجيل بنجاح</Alert>} 
+             {/*for fail register in event */}
+            {alreadyinFlag && <Alert className={style.Alertalreadyin} variant="outlined" severity="warning"> {errorRecipt}</Alert>}
+
             
         </div>
     );

@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { UseEvent } from "../context/EventContext";
 import { UseUser } from "../context/UserContext";
 
 export function useAddEvent(){
     let {token}=UseUser();
     let{eventDispatch}=UseEvent();
-    async function  addEvent(name, description,location, numberOfMember,price,status,image) {
+    let [error,setError]=useState("");
+    async function  addEvent(name, description,location, numberOfMember,price,status,image,handlechangeFlag) {
         try {
             const res=await fetch("http://localhost:8080/api/event/addevent",
                 {
@@ -20,16 +22,19 @@ export function useAddEvent(){
             if(res.ok){
                 eventDispatch({type:"addEvent",payload:data.event});
                 console.log(data.event);
+                handlechangeFlag();
             }
             else{
                 throw new Error(data.error);
+                
             }
             
         } catch (error) {
             console.log(error);
+            setError(error.message)
         }
 
         
     }
-    return {addEvent};
+    return {addEvent,error};
 }

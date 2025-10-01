@@ -3,13 +3,13 @@ import { UseUser } from "../context/UserContext";
 export function useAddReceipt() {
 
     let{token}=UseUser();
-  async function addReceipt(event_id, amount, rec_image,handlechangeflag2) {
+  async function addReceipt(event_id, amount, rec_image,handlechangeflag2,handlechangeAlertFlag,handlechangeAlreadyinFlag,handlechangeErrorReceipt) {
     const formData = new FormData();
     formData.append("amount", amount);
     formData.append("receipt", rec_image);
      try {
-
-        const res = await fetch(`http://localhost:8080/api/receipt/addreceipt/${event_id}`, {
+          handlechangeErrorReceipt("") ;
+      const res = await fetch(`http://localhost:8080/api/receipt/addreceipt/${event_id}`, {
       method: "POST",
       body: formData,
       headers: {
@@ -19,15 +19,18 @@ export function useAddReceipt() {
 
     const data = await res.json();
     if(res.ok){
-        console.log(data.message);
         handlechangeflag2();
+        handlechangeAlertFlag();
+       
     }
     else{
         throw new Error(data.error);
     }
         
      } catch (error) {
-        console.log(error.message);
+        handlechangeErrorReceipt(error.message)
+         handlechangeflag2();
+        handlechangeAlreadyinFlag();
      }
     
   }
