@@ -18,7 +18,7 @@ export async function Authorization(req,res,next){
       ]
     )
     if(row.length==0){
-      return res.status(403).send({error:"user not found"});
+      return res.status(404).send({error:"user not found"});
     }
     let {full_name, national_number, location, age,role, description}=row[0];
     req.user ={id,full_name, national_number, location, age,role, description} ; 

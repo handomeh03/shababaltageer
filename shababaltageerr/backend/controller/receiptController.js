@@ -33,6 +33,16 @@ export async function addreceipt(req,res) {
            return res.status(400).send({error:"الرجاء دفع المبلغ المطلوب"})
     }
 
+    let [userevent]=await db.execute("select * from userevent where user_id = ? and event_id = ? ",
+       [
+        user_id,
+        event_id
+       ]
+    )
+    if(userevent.length > 0){
+        return res.status(409).send({error:"انت مسجل في هذا التطوع من قبل"})
+    }
+
     await db.execute("insert into userevent(user_id,event_id) values(?,?)",
         [
             user_id,
