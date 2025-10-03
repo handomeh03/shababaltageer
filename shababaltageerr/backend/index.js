@@ -28,8 +28,8 @@ app.use("/api/event",eventRouter);
 app.use("/api/volunter",VolunterRouter);
 app.use("/api/receipt",receiptRouter)
 initdb().then(
-    app.listen(process.env.PORT,()=>{
-    console.log("the sever is run at "+ process.env.PORT)
+    app.listen(process.env.PORT || 3000,()=>{
+    console.log("the sever is run at "+ process.env.PORT || 3000)
 })
 
 ).catch((e)=>{

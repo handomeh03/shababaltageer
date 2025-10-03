@@ -6,7 +6,7 @@ async function initdb() {
     }
 
     try {
-        connection = await mysql.createConnection({
+        connection = await mysql.createConnection(process.env.DATABASE_URL || {
             host: process.env.DB_HOST,     
             user: process.env.DB_USER,        
             password: process.env.DB_PASSWORD,  
