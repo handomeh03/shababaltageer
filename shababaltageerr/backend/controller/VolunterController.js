@@ -26,7 +26,7 @@ export async function getVolunter(req,res){
         //make the photo url
          volunter = volunter.map(v => ({
            ...v,
-           receipt_image: `${process.env.URL}/uploads/${v.receipt_image}`
+           receipt_image: `${process.env.URL_SERVER || process.env.URL }/uploads/${v.receipt_image}`
             }));
 
         return res.status(200).send({volunters:volunter})
