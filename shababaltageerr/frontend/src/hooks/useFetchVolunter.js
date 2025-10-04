@@ -12,7 +12,7 @@ export function  useFetchVolunter(event_id){
             async function fetchVolunter() {
                 try {
                     setLoader(true);
-                    const res=await fetch(`http://localhost:8080/api/volunter/getVolunter/event/${event_id}`,
+                    const res=await fetch(`${import.meta.env.VITE_API_URL}/api/volunter/getVolunter/event/${event_id}`,
                         {
                             method:"GET",
                             headers:{

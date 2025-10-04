@@ -8,7 +8,7 @@ export function UseLogin() {
 
   async function login(national_number,password) {
     try {
-       const res = await fetch("http://localhost:8080/api/user/login", {
+       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/login`, {
         method: "POST",
         body: JSON.stringify({ national_number, password }),
         headers: {

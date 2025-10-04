@@ -8,7 +8,7 @@ export function useAddEvent(){
     let [error,setError]=useState("");
     async function  addEvent(name, description,location, numberOfMember,price,status,image,handlechangeFlag) {
         try {
-            const res=await fetch("http://localhost:8080/api/event/addevent",
+            const res=await fetch(`${import.meta.env.VITE_API_URL}/api/event/addevent`,
                 {
                     method:"POST",
                     body:JSON.stringify({name,location,description,image,status,number_of_members:Number(numberOfMember),price:Number(price)}),
