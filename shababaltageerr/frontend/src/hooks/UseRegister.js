@@ -8,7 +8,7 @@ export function UseRegister() {
   let [registerError,setError]=useState("");
   async function Register(  full_name,national_number,location,age,description,password,phoneNumber) {
     try {
-      const res = await fetch("http://localhost:8080/api/user/register", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/register`, {
         method: "POST",
         body: JSON.stringify({
           full_name,

@@ -6,7 +6,7 @@ export function useDeleteEvent(){
      let{eventDispatch}=UseEvent();
     async function delteEvent(id) {
        try {
-        const res=await fetch(`http://localhost:8080/api/event/${id}`,
+        const res=await fetch(`${import.meta.env.VITE_API_URL}/api/event/${id}`,
             {
                 method:"DELETE",
                 headers:{

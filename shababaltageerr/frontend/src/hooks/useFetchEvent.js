@@ -9,7 +9,7 @@ export function useFetchEvent(){
            async function fetchEvent() {
               try {
                 setLoader(true);
-                 const res=await fetch("http://localhost:8080/api/event/");
+                 const res=await fetch(`${import.meta.env.VITE_API_URL}/api/event/`);
                  const data=await res.json();
                 if(res.ok){  
                   eventDispatch({type:"fetchEvent",payload:data.events})

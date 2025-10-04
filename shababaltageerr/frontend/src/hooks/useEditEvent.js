@@ -8,7 +8,7 @@ export function useEditEvent(){
     let [error,setError]=useState("");
     async function editEvent(name, description,location, numberOfMember,price,status,image,event_id,handlechangeFlag) {
         try {
-            const res =await fetch(`http://localhost:8080/api/event/editevent/${event_id}`,
+            const res =await fetch(`${import.meta.env.VITE_API_URL}/api/event/editevent/${event_id}`,
                 {
                    method:"PATCH",
                     body:JSON.stringify({name,location,description,image,status,number_of_members:Number(numberOfMember),price:Number(price)}),
