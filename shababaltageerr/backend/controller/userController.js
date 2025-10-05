@@ -3,14 +3,14 @@ import bcrypt from "bcrypt";
 import { createtoken } from "../utlis/token.js";
 
 export async function register(req, res) {
-  let { full_name, national_number, location, age, description, password,phoneNumber } =
+  let { full_name, phoneNumber, location, age, description, password } =
     req.body;
 
   try {
     let db = await initdb();
     let [row] = await db.execute(
-      "select * from users where national_number = ? ",
-      [national_number]
+      "select * from users where phonenumber = ? ",
+      [phoneNumber]
     );
     if (row.length > 0) {
       return res.status(400).send({ error: "المستخدم موجود بالفعل" });
@@ -21,7 +21,7 @@ export async function register(req, res) {
     //success register
     let [user]=await db.execute(
       "INSERT INTO users (full_name, national_number, location, age, description, password,phoneNumber) VALUES (?, ?, ?, ?, ?, ?,?)",
-      [full_name, national_number, location, age, description, hashPassword,phoneNumber]
+      [full_name, phoneNumber, location, age, description, hashPassword,phoneNumber]
     );
     // create jsonwebtoken
     
@@ -29,11 +29,10 @@ export async function register(req, res) {
     let token = createtoken(
       user.insertId,
       full_name,
-      national_number,
+      phoneNumber,
       location,
       age,
       description,
-      phoneNumber
     );
 
     return res.status(200).send({token});
@@ -43,12 +42,12 @@ export async function register(req, res) {
   }
 }
 export async function login(req, res) {
-  let {national_number, password } = req.body;
+  let {phonenumber, password } = req.body;
   try {
     let db = await initdb();
     let [row] = await db.execute(
-      "select * from users where national_number = ? ",
-      [national_number]
+      "select * from users where phonenumber = ? ",
+      [phonenumber]
     );
     if(row.length==0){
         return res.status(400).send({error:"عليك ان تنشئ حساب قبل عملية الدخول"})
@@ -61,7 +60,7 @@ export async function login(req, res) {
     //destructre the information to display in respone
     let { user_id ,full_name,location,age,description,phoneNumber}=row[0];
 
-    let token=createtoken(user_id ,full_name, national_number,location,age,description,phoneNumber)
+    let token=createtoken(user_id ,full_name, phonenumber,location,age,description);
     return res.status(200).send({token})
   } catch (error) {
     console.log(error);
@@ -72,7 +71,7 @@ export async function getUser(req,res) {
   let {id}=req.user;
   try {
     let db=await initdb();
-    let [row]=await db.execute("select  full_name,national_number,location,age,role,description,phoneNumber from users where  user_id = ?",
+    let [row]=await db.execute("select  full_name,phonenumber,location,age,role,description from users where  user_id = ?",
       [
         id
       ]
@@ -80,8 +79,8 @@ export async function getUser(req,res) {
     if(row.length==0){
       res.status(400).send({error:"المستخدم غير موجود"});
     }
-    let{full_name,national_number,location,age,role,description,phoneNumber}=row[0];
-    return res.status(200).send({user:{full_name,national_number,location,age,role,description,phoneNumber}});
+    let{full_name,phonenumber,location,age,role,description}=row[0];
+    return res.status(200).send({user:{full_name,phonenumber,location,age,role,description}});
     
 
   } catch (error) {

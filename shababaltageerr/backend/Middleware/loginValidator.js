@@ -1,9 +1,15 @@
 import Joi from "joi";
+
+const phoneRegex = /^(07[789]\d{7})$/;
+
 export const loginSchema=Joi.object({
-   national_number: Joi.string().length(10).required().messages({
-       "string.empty": "الرقم الوطني مطلوب",
-       "string.length": "الرقم الوطني لازم يكون 10 أرقام",
-     }),
+    phoneNumber: Joi.string()
+    .pattern(phoneRegex)
+    .required()
+    .messages({
+      "string.empty": "رقم الهاتف مطلوب",
+      "string.pattern.base": "رقم الهاتف غير صالح",
+    }),
     password: Joi.string().required().messages({
        "string.empty": "كلمة السر مطلوبة",
      }),  

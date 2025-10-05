@@ -11,7 +11,7 @@ import Stack from '@mui/material/Stack';
 import ErrorAlert from "../componnet/Alert";
 export default function Login() {
 
-  let[nationalNumber,setNationalNumber]=useState("");
+  let[phonenumber,setphonenumber]=useState("");
   let[password,setPassword]=useState("");
 
   //login hook
@@ -20,7 +20,7 @@ export default function Login() {
   // call function that fetch data from hook
   function handleLogin(e){
       e.preventDefault(); 
-      login(nationalNumber,password);
+      login(phonenumber,password);
   }
  
   return (
@@ -37,7 +37,7 @@ export default function Login() {
         </div>
 
         <div className={style.register}>
-          <input value={nationalNumber} onChange={(e)=>{setNationalNumber(e.target.value)}} type="text" placeholder="الرقم الوطني" required></input>
+          <input value={phonenumber} onChange={(e)=>{setphonenumber(e.target.value)}} type="text" placeholder="رقم الهاتف" required></input>
 
           <input value={password} onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder="كلمة المرور" required></input>
 
