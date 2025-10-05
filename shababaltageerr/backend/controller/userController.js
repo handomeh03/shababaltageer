@@ -20,7 +20,7 @@ export async function register(req, res) {
 
     //success register
     let [user]=await db.execute(
-      "INSERT INTO users (full_name, national_number, location, age, description, password,phoneNumber) VALUES (?, ?, ?, ?, ?, ?,?)",
+      "INSERT INTO users (full_name, phonenumber, location, age, description, password) VALUES (?, ?, ?, ?, ?, ?,?)",
       [full_name, phonenumber, location, age, description, hashPassword]
     );
     // create jsonwebtoken
