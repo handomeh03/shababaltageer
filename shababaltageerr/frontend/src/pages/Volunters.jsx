@@ -39,10 +39,9 @@ export default function Volunters() {
         <thead>
           <tr>
             <th>الاسم</th>
-            <th>الرقم الوطني</th>
+            <th>رقم الهاتف</th>
             <th>العنوان</th>
             <th>العمر</th>
-            <th>رقم الهاتف</th>
             <th>صورة الوصل</th>
             
           </tr>
