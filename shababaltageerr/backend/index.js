@@ -6,6 +6,8 @@ import { userRouter } from "./router/UserRouter.js";
 import { eventRouter } from "./router/eventRouter.js";
 import { VolunterRouter } from "./router/volunterRouter.js";
 import { receiptRouter } from "./router/receiptRouter.js";
+
+import { fileURLToPath } from "url";
 import path from "path";
 dotenv.config();
 const app=express();
