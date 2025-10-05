@@ -21,6 +21,7 @@ function App() {
           <Route index element={<Events/>} />
           <Route path=":eventId/Volunters" element={<Volunters/>} />
         </Route>
+        <Route path="*" element={<h1>page not found</h1>}/>
       </Routes>
     </div>
   );
