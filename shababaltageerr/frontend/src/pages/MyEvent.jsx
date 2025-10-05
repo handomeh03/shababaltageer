@@ -24,7 +24,7 @@ export default function MyEvent(){
                          <div className={style.userEvent}>
                      <div className={style.userEventInformation}>
                              <p> اسم المتطوع : {user?.full_name}</p>
-                             <p>الرقم الوطني : {user?.national_number}</p>
+                             <p>الرقم الوطني : {user?.phonenumber}</p>
                              <p style={{marginTop:"1rem"}}>مشاركاتي : </p>
                 </div>
                      <div className={style.tables}>

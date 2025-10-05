@@ -7,18 +7,17 @@ import ErrorAlert from "../componnet/Alert";
 
 export default function Register() {
   let [fullName,setFullname]=useState("");
-  let[nationalNumber,setNationalNumber]=useState("");
+  let[phonenumber,setphonenumber]=useState("");
   let[location,setLocation]=useState("");
   let [age,setAge]=useState("");
   let [description,setDescription]=useState("");
-  let[phoneNumber,setPhoneNumber]=useState("");
   let [password,setPassword]=useState("");
 
   let {Register,registerError}=UseRegister();
 
   function handleRegister(e){
     e.preventDefault(); 
-    Register(fullName,nationalNumber,location,Number(age),description,password,phoneNumber);
+    Register(fullName,phonenumber,location,Number(age),description,password);
   }
   return (
     <div className={style.Register}>
@@ -39,11 +38,10 @@ export default function Register() {
 
         <div className={style.registerform}>
           <input value={fullName} onChange={(e)=>{setFullname(e.target.value)}} type="text" placeholder="الاسم كامل" required />
-          <input value={nationalNumber} onChange={(e)=>{setNationalNumber(e.target.value)}} type="text" placeholder="الرقم الوطني" required />
+          <input value={phonenumber} onChange={(e)=>{setphonenumber(e.target.value)}} type="text" placeholder="رقم الهاتف " required />
           <input value={location} onChange={(e)=>{setLocation(e.target.value)}} type="text" placeholder=" العنوان" required />
           <input value={age} onChange={(e)=>{setAge(e.target.value)}} type="text" placeholder=" العمر" required />
           <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} placeholder="اكتب ملخص مشاركاتك التطوعية"></textarea>
-          <input value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} type="text" placeholder=" رقم الهاتف" required />
           <input value={password} onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder="كلمة المرور" required />
           <button onClick={handleRegister}>انشاء حساب</button>
           <p>

@@ -6,11 +6,11 @@ export function UseLogin() {
     let {userDispatch}=UseUser();
     let [errorLogin,setError]=useState("");
 
-  async function login(national_number,password) {
+  async function login(phonenumber,password) {
     try {
        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/login`, {
         method: "POST",
-        body: JSON.stringify({ national_number, password }),
+        body: JSON.stringify({ phonenumber, password }),
         headers: {
           "Content-Type": "application/json",
         },

@@ -9,10 +9,13 @@ export const registerSchema = Joi.object({
     "string.min": "الاسم لازم يكون على الأقل 3 حروف",
     "string.max": "الاسم طويل جدًا",
   }),
-  national_number: Joi.string().length(10).required().messages({
-    "string.empty": "الرقم الوطني مطلوب",
-    "string.length": "الرقم الوطني لازم يكون 10 أرقام",
-  }),
+  phoneNumber: Joi.string()
+    .pattern(phoneRegex)
+    .required()
+    .messages({
+      "string.empty": "رقم الهاتف مطلوب",
+      "string.pattern.base": "رقم الهاتف غير صالح",
+    }),
 
   location: Joi.string().required().messages({
     "string.empty": "الموقع مطلوب",
@@ -30,13 +33,6 @@ export const registerSchema = Joi.object({
     "string.empty": "كلمة السر مطلوبة",
     "string.pattern.base":  "كلمة السر لازم تحتوي على حرف كبير، حرف صغير، رقم ورمز خاص وطولها ≥ 8",
   }),
-  phoneNumber: Joi.string()
-    .pattern(phoneRegex)
-    .required()
-    .messages({
-      "string.empty": "رقم الهاتف مطلوب",
-      "string.pattern.base": "رقم الهاتف غير صالح",
-    }),
 });
 export function registerValid(schema) {
   return (req, res, next) => {

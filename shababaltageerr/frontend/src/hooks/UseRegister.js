@@ -6,18 +6,18 @@ export function UseRegister() {
  let navigate=useNavigate();
   let { userDispatch } = UseUser();
   let [registerError,setError]=useState("");
-  async function Register(  full_name,national_number,location,age,description,password,phoneNumber) {
+  async function Register( full_name,phonenumber,location,age,description,password) {
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/register`, {
         method: "POST",
         body: JSON.stringify({
           full_name,
-          national_number,
+          phonenumber,
           location,
           age,
           description,
           password,
-          phoneNumber
+          
         }),
         headers: {
           "Content-Type": "application/json",

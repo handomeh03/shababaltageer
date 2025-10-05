@@ -9,9 +9,9 @@ async function initdb() {
 
   try {
   
-    if (process.env.DATABASE_URL) {
-      pool = mysql.createPool(process.env.DATABASE_URL + "?connectionLimit=10");
-    } else {
+    // if (process.env.DATABASE_URL) {
+    //   pool = mysql.createPool(process.env.DATABASE_URL + "?connectionLimit=10");
+    // } else {
       
       pool = mysql.createPool({
         host: process.env.DB_HOST,
@@ -23,7 +23,7 @@ async function initdb() {
         connectionLimit: 10,   
         queueLimit: 0          
       });
-    }
+    // }
 
     console.log(" MySQL connection pool created successfully");
     return pool;
