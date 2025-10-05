@@ -10,6 +10,9 @@ import path from "path";
 dotenv.config();
 const app=express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(express.json());
 app.use(cors({
     origin:"https://shababaltageer.vercel.app"
