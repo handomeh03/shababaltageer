@@ -39,8 +39,13 @@ app.use("/api/user",userRouter);
 app.use("/api/event",eventRouter);
 app.use("/api/volunter",VolunterRouter);
 app.use("/api/receipt",receiptRouter);
-app.get("/.*/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend/dist", "index.html"));
+app.use((req, res, next) => {
+ 
+  if (!req.path.startsWith("/api")) {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
+  } else {
+    next(); 
+  }
 });
 initdb().then(
     app.listen(process.env.PORT || 3000,()=>{
