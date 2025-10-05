@@ -39,7 +39,7 @@ app.use("/api/user",userRouter);
 app.use("/api/event",eventRouter);
 app.use("/api/volunter",VolunterRouter);
 app.use("/api/receipt",receiptRouter);
-app.get("/:all(*)", (req, res) => {
+app.get("/.*/", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend/dist", "index.html"));
 });
 initdb().then(
