@@ -3,7 +3,7 @@ import Joi from "joi";
 const phoneRegex = /^(07[789]\d{7})$/;
 
 export const loginSchema=Joi.object({
-    phoneNumber: Joi.string()
+    phonenumber: Joi.string()
     .pattern(phoneRegex)
     .required()
     .messages({

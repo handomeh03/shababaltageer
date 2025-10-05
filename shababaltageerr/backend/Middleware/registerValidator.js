@@ -9,7 +9,7 @@ export const registerSchema = Joi.object({
     "string.min": "الاسم لازم يكون على الأقل 3 حروف",
     "string.max": "الاسم طويل جدًا",
   }),
-  phoneNumber: Joi.string()
+  phonenumber: Joi.string()
     .pattern(phoneRegex)
     .required()
     .messages({
