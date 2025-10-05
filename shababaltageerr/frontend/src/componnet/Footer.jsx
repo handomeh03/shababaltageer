@@ -4,7 +4,7 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 export default function Footer(){
     let whatsapp="https://wa.me/962791084778";
     let inastagram="https://www.instagram.com/shabab_altageer/";
-    let telegram="t.me/+hg4huqIpWxdhOWM0";
+    let telegram="https://t.me/+kyoi1KJ16bQ1ZTU0";
     let {Contact}=UseGoes();
     return(
         <div ref={Contact} className={style.footer}>
