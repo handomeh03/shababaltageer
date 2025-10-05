@@ -20,7 +20,7 @@ export async function register(req, res) {
 
     //success register
     let [user]=await db.execute(
-      "INSERT INTO users (full_name, phonenumber, location, age, description, password) VALUES (?, ?, ?, ?, ?, ?,?)",
+      "INSERT INTO users (full_name, phonenumber, location, age, description, password) VALUES (?, ?, ?, ?, ?, ?)",
       [full_name, phonenumber, location, age, description, hashPassword]
     );
     // create jsonwebtoken
@@ -54,7 +54,7 @@ export async function login(req, res) {
     }
     let match=await bcrypt.compare(password,row[0].password);
     if(!match){
-        res.status(400).send({error:"كلمة السر او الرقم الوطني غير صحيحات"});
+        res.status(400).send({error:"كلمة السر او  رقم الهاتف غير صحيحات"});
     }
 
     //destructre the information to display in respone
