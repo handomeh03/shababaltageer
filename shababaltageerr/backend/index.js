@@ -28,7 +28,7 @@ app.use((req,res,next)=>{
 
 app.use("/uploads", express.static("uploads"));
 
-app.use(express.static(path.join(__dirname, "frontend/build")));
+app.use(express.static(path.join(__dirname, "frontend/dist")));
 
 app.get("/", (req, res) => {
   res.send("Hello World");
