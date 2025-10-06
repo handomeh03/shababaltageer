@@ -45,7 +45,7 @@ app.use("/api/user",userRouter);
 app.use("/api/event",eventRouter);
 app.use("/api/volunter",VolunterRouter);
 app.use("/api/receipt",receiptRouter);
-app.use("*",(req,res)=>{
+app.use("/*",(req,res)=>{
   return res.send("api not found")
 })
 
