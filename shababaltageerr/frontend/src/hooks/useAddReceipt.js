@@ -8,7 +8,7 @@ export function useAddReceipt() {
     formData.append("amount", amount);
     formData.append("receipt", rec_image);
      try {
-          handlechangeErrorReceipt("") ;
+       handlechangeErrorReceipt("") ;
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/receipt/addreceipt/${event_id}`, {
       method: "POST",
       body: formData,
