@@ -6,14 +6,20 @@ import { userRouter } from "./router/UserRouter.js";
 import { eventRouter } from "./router/eventRouter.js";
 import { VolunterRouter } from "./router/volunterRouter.js";
 import { receiptRouter } from "./router/receiptRouter.js";
-
-import { fileURLToPath } from "url";
-import path from "path";
 dotenv.config();
+import { v2 as cloudinary } from 'cloudinary';
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET
+});
+
+
+
 const app=express();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
 
 app.use(express.json());
 app.use(cors({
@@ -26,11 +32,9 @@ app.use((req,res,next)=>{
     next();    
 })
 
-// app.use("/uploads", express.static("uploads"));
 
-app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
-app.use(express.static(path.join(__dirname, "frontend/dist")));
+
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -41,14 +45,10 @@ app.use("/api/user",userRouter);
 app.use("/api/event",eventRouter);
 app.use("/api/volunter",VolunterRouter);
 app.use("/api/receipt",receiptRouter);
-app.use((req, res, next) => {
- 
-  if (!req.path.startsWith("/api")) {
-    res.sendFile(path.join(__dirname, "dist", "index.html"));
-  } else {
-    next(); 
-  }
-});
+app.use("*",(req,res)=>{
+  return res.send("api not found")
+})
+
 initdb().then(
     app.listen(process.env.PORT || 3000,()=>{
     console.log("the sever is run at "+ process.env.PORT || 3000)
