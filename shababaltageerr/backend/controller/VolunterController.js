@@ -15,7 +15,7 @@ export async function getVolunter(req,res){
         if(event.length==0){
             return res.status(400).send({error:"event not found"});
         }
-        let [volunter]=await db.execute("SELECT u.user_id,  u.full_name,  u.national_number,  u.location,  u.age,  r.amount AS paid_amount, u.phonenumber,  r.image AS receipt_image FROM users u JOIN receipt r ON u.user_id = r.user_id WHERE r.event_id = ? ",
+        let [volunter]=await db.execute("SELECT u.user_id,  u.full_name,  u.phonenumber,  u.location,  u.age,  r.amount AS paid_amount,  r.image AS receipt_image FROM users u JOIN receipt r ON u.user_id = r.user_id WHERE r.event_id = ? ",
             [
                 eventID
             ]

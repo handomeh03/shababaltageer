@@ -51,9 +51,6 @@ export default function SingleEvent({handlechangeErrorReceipt,handlechangeAlread
         setStatus(status);
      }
 
-  
-
-
    let {user}=UseUser();
    let {delteEvent}=useDeleteEvent();
 
