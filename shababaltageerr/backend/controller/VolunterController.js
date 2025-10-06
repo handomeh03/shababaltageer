@@ -23,11 +23,7 @@ export async function getVolunter(req,res){
         if(volunter.length==0){
             return res.status(400).send({error:"no volunter found"})
         }
-        //make the photo url
-         volunter = volunter.map(v => ({
-           ...v,
-           receipt_image: `${process.env.URL_SERVER || process.env.URL }/uploads/${v.receipt_image}`
-            }));
+        
 
         return res.status(200).send({volunters:volunter})
         
